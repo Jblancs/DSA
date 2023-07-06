@@ -17,3 +17,24 @@ def is_prime(n):
       return False
 
   return True
+
+# n = input number
+# time = O(n)
+# space: O(1)
+
+# better way is to use sqrt
+from math import sqrt, floor
+
+def is_prime2(n):
+  if n < 2:
+    return False
+
+  for i in range(2, floor(sqrt(n)) + 1):
+    if n % i == 0:
+      return False
+
+  return True
+
+# n = input number
+# time = O(sqrt(n))
+# space: O(1)
