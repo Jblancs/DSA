@@ -22,7 +22,7 @@ def is_prime(n):
 # time = O(n)
 # space: O(1)
 
-# better way is to use sqrt
+# better way is to use sqrt (lowers time complexity)
 from math import sqrt, floor
 
 def is_prime2(n):
