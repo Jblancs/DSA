@@ -40,3 +40,9 @@ def anagrams(s1, s2):
         return False
 
 print(anagrams('restful', 'fluster')) # -> True
+
+# If you use the built in counter method it will create a hash map similar to the above
+from collections import Counter
+
+def anagrams_counter(s1, s2):
+    return Counter(s1) == Counter(s2)
