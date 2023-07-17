@@ -23,6 +23,7 @@ def anagrams(s1, s2):
     hashB = dict()
 
     for char1 in s1:
+        # check if key is within hash map
         if char1 in hashA:
             hashA[char1] += 1
         else:
