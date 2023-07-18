@@ -22,6 +22,8 @@ def pair_sum(numbers, target_sum):
     # use enumerate to pull index and value from list
     for idx, value in enumerate(numbers):
         diff = target_sum - value
+
+        # diff in hash map searches in constant time since it is a dict
         if diff in hash_map:
             return tuple((hash_map[diff], idx))
         else:
