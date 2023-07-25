@@ -29,10 +29,13 @@ def linked_list_find(head, target):
     return False
 
 # recursive solution
+# time O(n) for recursive calls
+# space O(n) to store each call stack (worse than iterative)
 def linked_list_find_recur(head, target):
     if head == None:
        return False
 
+    # must be after None base case in case there is no head
     if head.val == target:
        return True
 
