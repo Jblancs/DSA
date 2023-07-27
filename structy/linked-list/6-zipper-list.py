@@ -27,6 +27,9 @@ class Node:
     self.val = val
     self.next = None
 
+# iterative solution
+# time O(min(n,m)) because it only iterates up to the short list
+# space O(1) since done in place
 def zipper_lists(head_1, head_2):
     tail = head_1
     current_1 = head_1.next
@@ -51,7 +54,23 @@ def zipper_lists(head_1, head_2):
       tail.next = current_2
     return head_1
 
+# recursive solution
+def zipper_lists_recur(head_1, head_2):
+  if head_1 is None and head_2 is None:
+    return None
 
+  if head_1 is None:
+    return head_2
+
+  if head_2 is None:
+    return head_1 # C
+
+  next_1 = head_1.next # B C
+  next_2 = head_2.next # Y None
+
+  head_1.next = head_2 # A > X | B > Y
+  head_2.next = zipper_lists_recur(next_1, next_2) # X returns A > X > B > Y > C | (B, Y) returns B > Y > C | (C, None) returns C 
+  return head_1
 
 a = Node("a")
 b = Node("b")
@@ -62,7 +81,7 @@ b.next = c
 
 x = Node("x")
 y = Node("y")
-z = Node("z")
+z = Node("z") # if z was none
 x.next = y
 y.next = z
 # x -> y -> z
