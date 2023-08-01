@@ -38,7 +38,7 @@ def remove_node(head, target_val):
     while current is not None:
        if current.val == target_val:
           previous.next = current.next
-          return head
+          break
 
        previous = current
        current = current.next
