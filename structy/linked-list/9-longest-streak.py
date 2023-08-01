@@ -21,18 +21,19 @@ class Node:
 # time O(n) because we iterate through list
 # space O(1)
 def longest_streak(head):
-    value = head.val
+    value = None
     streak = 0
     highest_streak = 0
 
     current = head
     while current is not None:
-        if value != current.val:
-          value = current.val
-          streak = 0
+        if value == current.val:
+          streak += 1
+        else:
+           streak = 1
 
-        streak += 1
-
+        value = current.val
+        
         if streak > highest_streak:
            highest_streak = streak
 
