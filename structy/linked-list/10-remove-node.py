@@ -6,13 +6,45 @@
 
 # You may assume that the input list contains the target.
 
+# input: head of list and target value
+# output: head of list with node containing value removed
+# if head.val == target return head.next
+# create a current variable for current node
+# create previous variable to hold previous
+# while loop to iterate until current is None
+# if current.val == target, reassign prev.next = current.next
+# return head
+# previous = current
+# current = current.next
+# outside loop return head
+
+
+
 class Node:
   def __init__(self, val):
     self.val = val
     self.next = None
 
+# iterative solution
+# time O(n) since we iterate through all nodes
+# space O(1) sine we only have pointer variables
 def remove_node(head, target_val):
-    pass
+    if head.val == target_val:
+       head = head.next
+       return head
+
+    previous = None
+    current = head
+    while current is not None:
+       if current.val == target_val:
+          previous.next = current.next
+          return head
+
+       previous = current
+       current = current.next
+
+    return head
+
 
 
 a = Node("a")
@@ -30,5 +62,5 @@ e.next = f
 
 # a -> b -> c -> d -> e -> f
 
-remove_node(a, "c")
+print(remove_node(a, "c"))
 # a -> b -> d -> e -> f
