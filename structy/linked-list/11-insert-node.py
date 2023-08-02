@@ -59,5 +59,4 @@ c.next = d
 # a -> b -> c -> d
 
 print(insert_node(a, 'x', 2))
-print(insert_node_recur(a, 'x', 2))
 # a -> b -> x -> c -> d
