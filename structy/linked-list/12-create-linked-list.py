@@ -45,5 +45,14 @@ def create_linked_list_while(values):
 
    return dummy_head.next
 
+# recursive solution
+def create_linked_list_recur(values):
+   if len(values) == 0:
+      return None
+
+   head = Node(values[0])
+   head.next = create_linked_list_recur(values[1:])
+   return head
+
 print(create_linked_list(["h", "e", "y"]))
 # h -> e -> y
