@@ -46,12 +46,15 @@ def create_linked_list_while(values):
    return dummy_head.next
 
 # recursive solution
-def create_linked_list_recur(values):
-   if len(values) == 0:
+def create_linked_list_recur(values, i=0):
+   if len(values) == i:
       return None
 
    head = Node(values[0])
-   head.next = create_linked_list_recur(values[1:])
+  #  using slice creates a copy of the list so it is O(n) making it n^2
+  #  head.next = create_linked_list_recur(values[1:])
+  #  avoid using slice with an index variable
+   head.next = create_linked_list_recur(values, i + 1)
    return head
 
 print(create_linked_list(["h", "e", "y"]))
