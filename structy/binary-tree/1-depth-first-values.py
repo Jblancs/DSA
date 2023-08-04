@@ -2,15 +2,52 @@
 
 # Hey. This is our first binary tree problem, so you should be liberal with watching the Approach and Walkthrough. Be productive, not stubborn. -AZ
 
+# input: root of tree
+# output: list of each value of tree in depth first order
+# create a stack (list) and have root inside
+# create values to hold list of values
+# while loop to iterate while stack has value
+# create current variable by popping off value in stack
+# append value to values list
+# if current.right exists append to stack
+# if current.left exists append to stack
+# return values
+
 class Node:
   def __init__(self, val):
     self.val = val
     self.left = None
     self.right = None
 
+# iterative solution
+# time O(n) since we iterate through each node
+# space O(n) since we create list of all values
 def depth_first_values(root):
-    pass
+    if root is None:
+       return []
 
+    values = []
+
+    stack = [root]
+    while stack:
+       current = stack.pop()
+       values.append(current.val)
+
+       if current.right is not None:
+          stack.append(current.right)
+       if current.left is not None:
+          stack.append(current.left)
+
+    return values
+
+# recursive solution (uses call stack)
+def depth_first_values_recur(root):
+   if root is None:
+      return []
+
+   left_val = depth_first_values_recur(root.left)
+   right_val = depth_first_values_recur(root.right)
+   return [root.val, *left_val, *right_val]
 
 a = Node('a')
 b = Node('b')
@@ -30,5 +67,5 @@ c.right = f
 #  / \     \
 # d   e     f
 
-depth_first_values(a)
+print(depth_first_values(a))
 #   -> ['a', 'b', 'd', 'e', 'c', 'f']
