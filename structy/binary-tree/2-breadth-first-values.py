@@ -4,7 +4,7 @@
 # output: list of all values in breadth order
 # create a queue with root in it
 # while loop to iterate until queue is empty
-# 
+#
 
 class Node:
   def __init__(self, val):
@@ -12,8 +12,32 @@ class Node:
     self.left = None
     self.right = None
 
+from collections import deque
+# deque is a double ended queue and all operations that insert/remove from first and last run in constant O(1) time
+
 def breadth_first_values(root):
-    pass
+    if root is None:
+       return []
+
+    values = []
+
+    queue = deque([root])
+    while queue:
+      # popping from front of list runs O(n) time comp
+      # current = queue.pop(0)
+
+      # deque.popleft() runs in constant time
+      current = queue.popleft()
+
+      values.append(current.val)
+
+      if current.left:
+         queue.append(current.left)
+      if current.right:
+         queue.append(current.right)
+
+    return values
+
 
 a = Node('a')
 b = Node('b')
@@ -34,5 +58,5 @@ c.right = f
 #  / \     \
 # d   e     f
 
-breadth_first_values(a)
+print(breadth_first_values(a))
 #    -> ['a', 'b', 'c', 'd', 'e', 'f']
