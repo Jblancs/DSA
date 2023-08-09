@@ -46,6 +46,6 @@ print(anagrams('restful', 'fluster')) # -> True
 from collections import Counter
 
 def anagrams_counter(s1, s2):
-    return Counter(s1) == Counter(s2)
+    return Counter(s2)
 
-print(anagrams_counter('restful', 'fluster')) # -> True
+print(anagrams_counter('restful', 'flus ter')) # -> True
