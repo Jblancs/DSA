@@ -34,7 +34,6 @@ def _path_finder(root, target):
     return [root.val]
 
   left = _path_finder(root.left, target)
-  print(left)
   if left is not None:
     # *left takes list and unpacks items so it runs O(n) making it O(n^2)
     # return [root.val, *left]
