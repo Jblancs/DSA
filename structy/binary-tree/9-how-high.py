@@ -10,8 +10,23 @@ class Node:
     self.left = None
     self.right = None
 
+# should mimic depth first traversal
+# recursive solution is common for binary trees
+
 def how_high(node):
   pass # todo
+
+# recursive solution
+# time O(n) since we go through n nodes
+# space O(n) for each recursive call on stack
+def how_high_recur(node):
+  if node is None:
+    return -1
+
+  left = how_high_recur(node.left)
+  right = how_high_recur(node.right)
+
+  return 1 + max(left, right)
 
 a = Node('a')
 b = Node('b')
@@ -32,4 +47,5 @@ c.right = f
 #  / \     \
 # d   e     f
 
-how_high(a) # -> 2 
+print(how_high(a)) # -> 2
+print(how_high_recur(a)) # -> 2
