@@ -8,8 +8,33 @@ class Node:
     self.left = None
     self.right = None
 
+# input: root of tree
+# right most value at lowest level
+# create a queue using deque
+# while loop to iterate until queue is empty
+# create current by popleft
+# if current.left exists add to queue before right
+# queue will process left first meaning right will be processed last
+# this is necessary because we are looking for the right most value
+# return current.val
+
+from collections import deque
+
 def bottom_right_value(root):
-  pass # todo
+  queue = deque([root])
+
+  # create current outside although scoping for python works without it
+  current = None
+
+  while queue:
+    current = queue.popleft()
+
+    if current.left:
+      queue.append(current.left)
+    if current.right:
+      queue.append(current.right)
+
+  return current.val
 
 a = Node(3)
 b = Node(11)
