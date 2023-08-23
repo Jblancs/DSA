@@ -23,32 +23,32 @@ class Node:
 # time: O(n) since we iterate through n nodes
 # space O(n) since we create a list
 
-# def tree_levels(root):
-#   if root == None:
-#     return []
+def tree_levels(root):
+  if root == None:
+    return []
 
-#   result = []
+  result = []
 
-#   stack = [(root,0)]
-#   while stack:
-# #     unpacks tuple
-#     curr_node, curr_level = stack.pop()
+  stack = [(root,0)]
+  while stack:
+#     unpacks tuple
+    curr_node, curr_level = stack.pop()
 
-#     if curr_level == len(result):
-#       result.append([curr_node.val])
-#     else:
-#       result[curr_level].append(curr_node.val)
+    if curr_level == len(result):
+      result.append([curr_node.val])
+    else:
+      result[curr_level].append(curr_node.val)
 
-#     if curr_node.right:
-#       stack.append((curr_node.right,curr_level+1))
-#     if curr_node.left:
-#       stack.append((curr_node.left, curr_level+1))
+    if curr_node.right:
+      stack.append((curr_node.right,curr_level+1))
+    if curr_node.left:
+      stack.append((curr_node.left, curr_level+1))
 
-#   return result
+  return result
 
 # recursive
 
-def tree_levels(root):
+def tree_levels_recur(root):
   levels = []
   fill_levels(root, levels, 0)
   return levels
