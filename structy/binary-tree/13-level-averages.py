@@ -8,19 +8,67 @@ class Node:
 
 # input: root of binary tree
 # output: list of average of each level
-# create queue for breadth first traversal
+# create stack for depth first traversal
+# add tuple with node and level to stack
 # create result list
-# create num_vals to count value at each level
-# for loop to iterate until queue is empty
-# if len(result) == level add index
-# if level == 0 append root.val to result
-# else loop through
-# else add to existing index
+# create average list
+# while loop to iterate while stack contains a value
+# unpack tuple to access node and level
+# if level == len(result) add level to result
+# else add to existing level
+# if node.left exists add to stack
+# same with right
+# outside of while loop loop through result
+# nest a loop to get average of values in each loop
+# append average to average list
+# return average list
 
+from statistics import mean
 
 def level_averages(root):
-  pass # todo
+  stack = [(root, 0)]
+  result_list = []
+  average_list = []
 
+  while stack:
+    node, level = stack.pop()
+
+    if level == len(result_list):
+      result_list.append([node.val])
+    else:
+      result_list[level].append(node.val)
+
+    if node.left:
+      stack.append((node.left, level+1))
+    if node.right:
+      stack.append((node.right, level+1))
+
+  for value_list in result_list:
+    average_list.append(mean(value_list))
+
+  return average_list
+
+def level_averages_recur(root):
+  levels = []
+  fill_levels(root, levels, 0)
+
+  averages = []
+  for value_list in levels:
+    averages.append(mean(value_list))
+
+  return averages
+
+def fill_levels(root, levels, level):
+  if root is None:
+    return
+
+  if len(levels) == level:
+    levels.append([root.val])
+  else:
+    levels[level].append(root.val)
+
+  fill_levels(root.left, levels, level+1)
+  fill_levels(root.right, levels, level+1)
 
 
 a = Node(3)
@@ -42,4 +90,5 @@ c.right = f
 #  / \      \
 # 4   -2     1
 
-level_averages(a) # -> [ 3, 7.5, 1 ]
+print(level_averages(a)) # -> [ 3, 7.5, 1 ]
+print(level_averages_recur(a)) # -> [ 3, 7.5, 1 ]
