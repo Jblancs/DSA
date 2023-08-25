@@ -75,4 +75,4 @@ c.right = f
 # d   e     f
 
 print(leaf_list(a)) # -> [ 'd', 'e', 'f' ]
-print(leaf_list_recur(a)) # -> [ 'd', 'e', 'f' ]
+print(leaf_list_recur(a))  # -> [ 'd', 'e', 'f' ]
