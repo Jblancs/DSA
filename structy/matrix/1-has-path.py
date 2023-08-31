@@ -43,8 +43,6 @@ def has_path_recur(graph, src, dst):
   return False
 
 
-
-
 graph = {
   'f': ['g', 'i'],
   'g': ['h'],
