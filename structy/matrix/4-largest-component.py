@@ -55,7 +55,6 @@ def largest_component(graph):
     return largest
 
 
-
 print(largest_component({
   0: [8, 1, 5],
   1: [0],
