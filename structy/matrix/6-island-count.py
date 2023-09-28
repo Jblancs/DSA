@@ -21,6 +21,9 @@
 # increment count +1
 # return count
 
+# time O(rc) because we traverse through each node in grid
+# space is O(rc) because we create a stack and set (worst is if all Ls)
+
 # is_inbounds helper function
 def is_inbounds(r, c, grid):
   row_inbounds = 0 <= r < len(grid)
