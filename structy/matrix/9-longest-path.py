@@ -42,9 +42,6 @@ def traverse_dist(graph, node, distance):
       distance[neighbor] = length + 1
       stack.append(neighbor)
 
-
-
-
 graph = {
   'a': ['c', 'b'],
   'b': ['c'],
