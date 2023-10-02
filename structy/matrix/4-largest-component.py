@@ -1,52 +1,58 @@
 # Write a function, largest_component, that takes in the adjacency list of an undirected graph. The function should return the size of the largest connected component in the graph.
 
-# input: adj list of undirected graph
-# output: size of largest connected component
-# create helper breadth_traversal for graph traversal
-# create largest_comp to hold number of largest comp
-# create visited to hold set of visited nodes
-# for loop to iterate each node in graph
-# if node not in visited create size variable which calls breadth_traversal to traverse
-# if size is greater than largest_comp reassign largest_comp to size
-# outside of for loop return largest comp
+# input: adj list
+# output: size of largest component
+
+# helper function to get_comp_size
+# traverse using breadth first deque
+# create comp_size variable starting at 1
+# while loop while queue has value
+# create current
+# for loop to iterate through neighbors
+# if node not in visited
+# add node to visited
+# add node to queue
+# increment comp _size +1
+# return comp_size
+
+# create visited set to hold visited nodes
+# create largest variable to hold largest comp
+# for loop node in graph
+# if node not in visited
+# add node to visited
+# create current and call get_comp_size
+# if current > largest reassign to largest to current
+# return largest
 
 from collections import deque
 
-# helper function for component size
-def get_comp_size(graph, node, visited):
-  queue = deque([node])
-  comp_size = 1
+def get_comp_size(node, graph, visited):
+    queue = deque([node])
+    comp_size = 1
 
-  while queue:
-    current = queue.popleft()
-    
-    for neighbor in graph[current]:
-      if neighbor not in visited:
-        queue.append(neighbor)
-        visited.add(neighbor)
-        comp_size += 1
-  
-  return comp_size
+    while queue:
+        current = queue.popleft()
 
-# iterative solution
-# time O(e) for each edge traveled
-# space O(n) for stack and set
+        for neighbor in graph[current]:
+          if neighbor not in visited:
+              visited.add(neighbor)
+              queue.append(neighbor)
+              comp_size += 1
+
+    return comp_size
+
 def largest_component(graph):
-  if graph is None:
-    return 0
-  
-  size = 0
-  visited = set()
+    visited = set()
+    largest = 0
 
-  for node in graph:
-    if node not in visited:
-      current_size = get_comp_size(graph, node, visited)
-      visited.add(node)
+    for node in graph:
+        if node not in visited:
+            visited.add(node)
+            current_size = get_comp_size(node, graph, visited)
+            if largest < current_size:
+                largest = current_size
 
-      if current_size > size:
-        size = current_size
-
-  return size
+    return largest
 
 
 print(largest_component({
