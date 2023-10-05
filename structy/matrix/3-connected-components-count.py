@@ -31,6 +31,7 @@ def connected_components_count(graph):
   visited = set()
   comp_num = 0
   
+  # node is each key of the graph which is essentially each node
   for node in graph:
     if node not in visited:
       visited.add(node)

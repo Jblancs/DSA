@@ -4,59 +4,64 @@
 
 # You can assume that it is possible to eventually complete all courses.
 
-# create adj_list helper to create graph
-def adj_list(prereqs):
-  graph = {}
-  for (a, b) in prereqs:
-    if a not in graph:
-      graph[a] = []
-    if b not in graph:
-      graph[b] = []
+# create helper function to create graph based on prereqs (adj list)
+def create_graph(prereqs):
+    graph = {}
 
-    graph[b].append(a)
+    for (a,b) in prereqs:
+      if a not in graph:
+          graph[a] = []
+      if b not in graph:
+          graph[b] = []
 
-  return graph
+      graph[b].append(a)
 
-# create update_semesters helper function
-def update_semesters(graph, node, semesters):
-  sems = 1
-  stack = [node]
+    return graph
 
-  while stack:
-    current = stack.pop()
+# input: num of courses and prereqs
+# output: min num of semesters to complete all n courses
+# create graph by calling helper function on prereqs
+# create sems to hold total number of semester to complete course
+# for loop to iterate through graph
+# call populate_semester on each node
+# return max(sems.values())
 
-    if current not in semesters:
-      semesters[current] = sems
-    else:
-      sems = semesters[current]
+# create helper function to populate sems dictionary
+def populate_semester(node, graph, sems):
+    num_of_sems = 1
+    stack = [node]
 
-    for neighbor in graph[current]:
-      semesters[neighbor] = sems + 1
-      stack.append(neighbor)
+    while stack:
+        current = stack.pop()
+
+        if current not in sems:
+            sems[current] = num_of_sems
+        else:
+            num_of_sems = sems[current]
+
+        for neighbor in graph[current]:
+                sems[neighbor] = num_of_sems + 1
+                stack.append(neighbor)
 
 
-# input: num of courses (n) and list of prereqs
-# output: min number of semesters to complete all n courses
-# create graph using adj_list helper
-# create semesters dict to hold num of semesters for each class
-# for loop to iterate through graph and call helper update_semseters
-# return max of semesters.values()
+# time O(prereqs)
+# space O(num_courses) since we store each course in dict
 
 def semesters_required(num_courses, prereqs):
-  if prereqs is None:
-    return 1
+    if len(prereqs) == 0:
+        return 1
 
-  graph = adj_list(prereqs)
-  semesters = {}
+    graph = create_graph(prereqs)
+    sems = {}
 
-  for node in graph:
-    if len(graph[node]) == 0:
-      semesters[node] = 1
+    for node in graph:
+        if len(graph[node]) == 0:
+            sems[node] = 1
 
-  for node in graph:
-    update_semesters(graph, node, semesters)
+    for node in graph:
+        populate_semester(node, graph, sems)
 
-  return max(semesters.values())
+    return max(sems.values())
 
 
 num_courses = 6
@@ -67,3 +72,14 @@ prereqs = [
   (0, 5),
 ]
 print(semesters_required(num_courses, prereqs)) # -> 3
+
+num_courses = 7
+prereqs1 = [
+  (4, 3),
+  (3, 2),
+  (2, 1),
+  (1, 0),
+  (5, 2),
+  (5, 6),
+]
+print(semesters_required(num_courses, prereqs1)) # -> 5
