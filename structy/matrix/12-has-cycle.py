@@ -21,7 +21,7 @@ def has_cycle(graph):
       result = traverse(node, graph, visiting, visited)
       if result:
         return result
-  
+
   return False
 
 def traverse(node, graph, visiting, visited):
@@ -35,11 +35,11 @@ def traverse(node, graph, visiting, visited):
       for neighbor in graph[current]:
         if neighbor == node:
           return True
-        
+
         if neighbor in visiting:
           return True
-        
-        if neighbor not in visited: 
+
+        if neighbor not in visited:
           visiting.add(neighbor)
           stack.append(neighbor)
 
