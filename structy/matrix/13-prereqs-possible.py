@@ -19,7 +19,8 @@
 # visited.update with visiting values
 # clear visiting
 
-
+# time O(n + p) num of courses and prereqs
+# space O(n + p) num of courses and prereqs
 
 def prereqs_possible(num_courses, prereqs):
   visited = set()
