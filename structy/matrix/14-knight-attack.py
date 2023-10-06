@@ -26,8 +26,8 @@
 # if if neighbor_row and neighbor_col == pr and pc return move + 1
 # outside while loop return None
 
-# time: O(s) for each space on board
-# space: O(s)
+# time: O(n^2) for each space on board
+# space: O(n^2) for each position
 
 from collections import deque
 
