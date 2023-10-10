@@ -45,3 +45,5 @@ def most_frequent_char_counter(s):
     return letter
 
 print(most_frequent_char('bookeeper')) # -> 'e'
+
+

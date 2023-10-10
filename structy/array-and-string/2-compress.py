@@ -45,3 +45,5 @@ def compress(s):
     return "".join(result)
 
 print(compress('ccaaatsss')) # -> '2c3at3s'
+
+
