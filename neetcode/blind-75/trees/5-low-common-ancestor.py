@@ -38,5 +38,6 @@ class TreeNode:
         self.left = None
         self.right = None
 
-class Solution:
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+
+def lowestCommonAncestor(root, p, q):
+    pass 
