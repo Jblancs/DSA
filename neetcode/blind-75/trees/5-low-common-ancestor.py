@@ -39,5 +39,22 @@ class TreeNode:
         self.right = None
 
 
+# input: BSA and 2 node (p & q)
+# output: LCA node
+
+# while loop to iterate through stack
+# create current by pop
+#
+
 def lowestCommonAncestor(root, p, q):
-    pass 
+    current = root
+
+    while current:
+        if p.val > current.val and q.val > current.val:
+            current = current.right
+
+        elif p.val < current.val and q.val < current.val:
+            current = current.left
+
+        else:
+            return current
