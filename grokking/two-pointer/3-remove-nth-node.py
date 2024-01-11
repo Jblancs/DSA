@@ -41,9 +41,14 @@ class LinkedList:
 # output: head and remove target node from end
 # create pointer left and right
 # loop until right is pointing at target node
+# if right is pointing to null that means head must be removed. Return head.next
 # loop until right is pointing at end and move left
 # set left.next = left.next.next
 # return head
+
+# time O(n) where n is number of nodes
+# space O(1)
+
 
 def remove_nth_last_node(head, n):
     left = head
@@ -52,6 +57,8 @@ def remove_nth_last_node(head, n):
     for i in range(n):
         right = right.next
 
+    if not right:
+        return head.next
 
     while right.next:
         left = left.next
