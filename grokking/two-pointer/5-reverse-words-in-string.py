@@ -23,6 +23,9 @@
 # end += 1
 # outside loop return reversed_str
 
+# time: O(n+n) or O(n) since string is traversed twice
+# space: O(n) since we create a list for each char since python strings are immutable
+
 import re
 
 def reverse_words(sentence):
