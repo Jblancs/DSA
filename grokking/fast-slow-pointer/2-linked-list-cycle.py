@@ -1,3 +1,5 @@
+from utils import LinkedList
+
 # input: head of linked list
 # output: boolean whether linked list contains cycle
 
@@ -8,7 +10,7 @@
 # slow = slow.next
 # fast = fast.next.next
 
-# time = O(logn)
+# time = O(n)
 # space = O(1)
 
 def detect_cycle(head):
@@ -26,66 +28,6 @@ def detect_cycle(head):
            return True
 
     return False
-
-
-
-class LinkedListNode:
-    # __init__ will be used to make a LinkedListNode type object.
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
-
-class LinkedList:
-    # __init__ will be used to make a LinkedList type object.
-    def __init__(self):
-        self.head = None
-
-    # insert_node_at_head method will insert a LinkedListNode at head
-    # of a linked list.
-    def insert_node_at_head(self, node):
-        if self.head:
-            node.next = self.head
-            self.head = node
-        else:
-            self.head = node
-
-    # create_linked_list method will create the linked list using the
-    # given integer array with the help of InsertAthead method.
-    def create_linked_list(self, lst):
-        for x in reversed(lst):
-            new_node = LinkedListNode(x)
-            self.insert_node_at_head(new_node)
-
-    # returns the number of nodes in the linked list
-    def get_length(self, head):
-        temp = head
-        length = 0
-        while(temp):
-            length+=1
-            temp = temp.next
-        return length
-
-    # returns the node at the specified position(index) of the linked list
-    def get_node(self, head, pos):
-        if pos != -1:
-            p = 0
-            ptr = head
-            while p < pos:
-                ptr = ptr.next
-                p += 1
-            return ptr
-
-    # __str__(self) method will display the elements of linked list.
-    def __str__(self):
-        result = ""
-        temp = self.head
-        while temp:
-            result += str(temp.data)
-            temp = temp.next
-            if temp:
-                result += ", "
-        result += ""
-        return result
 
 
 list_1 = LinkedList()
