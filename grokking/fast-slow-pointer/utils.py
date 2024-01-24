@@ -56,4 +56,19 @@ class LinkedList:
         result += ""
         return result
 
+# Template for reversing a linked list
+def reverse_linked_list(head):
+	prev, curr = None, head
+	while curr:
+		nxt = curr.next
+		curr.next = prev
+		prev = curr
+		curr = nxt
+	return prev
 
+# Template for traversing a linked list
+def traverse_linked_list(head):
+    current, nxt = head, None
+    while current:
+      nxt = current.next
+      current = nxt
