@@ -1,6 +1,17 @@
 from utils import LinkedList, reverse_linked_list, traverse_linked_list
 
-def get_middle_node(head):
+# input: head of singly LL
+# output: middle node
 
-    # Replace this placeholder return statement with your code
-    return head
+def get_middle_node(head):
+    fast, slow = head, head
+
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+    return slow
+
+list_1 = LinkedList()
+list_1.create_linked_list([1,2,3,4,5,6])
+print(get_middle_node(list_1.head).data)
