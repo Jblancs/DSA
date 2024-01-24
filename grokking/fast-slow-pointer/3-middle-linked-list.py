@@ -3,6 +3,15 @@ from utils import LinkedList, reverse_linked_list, traverse_linked_list
 # input: head of singly LL
 # output: middle node
 
+# initialize fast and slow pointer
+# while fast and fast.next
+# increment slow by 1 and fast by 2
+# return slow
+
+# time: O(n)
+# space: O(1)
+
+
 def get_middle_node(head):
     fast, slow = head, head
 
