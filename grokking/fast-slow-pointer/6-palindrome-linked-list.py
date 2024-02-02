@@ -10,6 +10,9 @@
 # return False if list1.val != list2.val
 # return True
 
+# time: O(n) for each node in list
+# space: O(1) done in place
+
 from utils import LinkedList, reverse_linked_list
 
 def palindrome(head):
