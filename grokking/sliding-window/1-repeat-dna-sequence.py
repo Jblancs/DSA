@@ -11,8 +11,8 @@
 # outside loop init result = []
 # iterate over hash and add each string with value > 1 to result
 
-# time: O(n - k) since we iterate over each string with length k
-# space: O(n - k) since we create hashmap
+# time: O(k(n-k)) since we iterate over each string with length k and slice out k char
+# space: O(k(n-k) since we create hashmap
 
 def find_repeated_sequences(s, k):
 
