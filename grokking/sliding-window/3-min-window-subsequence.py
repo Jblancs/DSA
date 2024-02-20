@@ -19,6 +19,8 @@
 # outside inner loop increment idx1
 # return min_subseq
 
+# time: O(n*m) where n is length of str1 and m is length of str2 since we reverse loop for str2
+
 def min_window(str1, str2):
     len1 = len(str1)
     len2 = len(str2)
