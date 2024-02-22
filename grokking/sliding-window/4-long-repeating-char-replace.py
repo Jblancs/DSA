@@ -14,6 +14,9 @@
 # start += 1
 # longest_len = max(end - start + 1, longest_len)
 
+# time O(n) for each char
+# space O(1) for hashmap with a max storing is 26 letters
+
 def longest_repeating_character_replacement(s, k):
     longest_len = 0
     start = 0
