@@ -18,15 +18,21 @@ Preorder Traversal
 - recursively perform preorder traversal on left child
 - recursively perform preorder traversal on right child
 
+![alt text](image.png)
+
 Inorder Traversal (usually used when we have to find elements smaller that root)
 - Recursively perform inorder traversal on left child
 - visit the node
 - Recursively perform inorder traversal on the right side
 
+![alt text](image-1.png)
+
 Postorder Traversal
 - Recursively perform postorder traversal on left child
 - Recursively perform postorder traversal on right child
 - visit the node
+
+![alt text](image-2.png)
 
 ## Does my problem match this pattern
 
@@ -41,4 +47,4 @@ No if:
 ### Real-world problems
 - Finding products in a price range
 - finding routes (ex. maps for finding route between start and destination point)
-- solving mazes 
+- solving mazes
