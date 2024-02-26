@@ -26,3 +26,5 @@ def sorted_array_to_bst_helper(nums, low, high):
 
 def sorted_array_to_bst(nums):
     return sorted_array_to_bst_helper(nums, 0, len(nums) - 1)
+
+print(sorted_array_to_bst([11,22,33,44,55,66,77,88]))
