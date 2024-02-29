@@ -6,6 +6,9 @@
 # helper for recursive trav
 # pass in current_node, p, q, mid, left, right
 
+# time: O(n) where n is number of nodes
+# space: O(h)
+
 class Solution:
     def __init__(self):
         self.lca = None
