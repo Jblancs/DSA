@@ -40,3 +40,23 @@ def populate_next_pointers(root):
             queue.append((current.right, level+1))
 
     return root
+
+def other_solution_populate_next_pointers(root):
+    if not root:
+        return None
+
+    mostleft = root
+
+    while mostleft.left:
+        current = mostleft
+
+        while current:
+            current.left.next = current.right
+            if current.next:
+                current.right.next = current.next.left
+
+            current = current.next
+
+        mostleft = mostleft.left
+
+    return root
