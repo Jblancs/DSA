@@ -10,39 +10,41 @@
 # if fcol or frow true set respective 0
 
 def set_matrix_zeros(mat):
-	rows = len(mat)
-	cols = len(mat[0])
-	fcol = False
+	row = len(mat)
+	col = len(mat[0])
+
 	frow = False
+	fcol = False
 
-	for i in range(rows):
-		if mat[i][0] == 0:
-			fcol = True
-
-	for i in range(cols):
-		if mat[0][i] == 0:
+	for idx in range(col):
+		if mat[0][idx] == 0:
 			frow = True
 
-	for i in range(1, rows):
-		for j in range(1, cols):
-			if mat[i][j] == 0:
-				mat[0][j] = mat[i][0] = 0
+	for idx in range(row):
+		if mat[idx][0] == 0:
+			fcol = True
 
-	for i in range(1, rows):
+	for i in range(1,row):
+		for j in range(1,col):
+			if mat[i][j] == 0:
+				mat[0][j] = 0
+				mat[i][0] = 0
+
+	for i in range(1,row):
 		if mat[i][0] == 0:
-			for j in range(1, cols):
+			for j in range(1,col):
 				mat[i][j] = 0
 
-	for j in range(1, cols):
-		if mat[0][j] == 0:
-			for i in range(1, rows):
+	for i in range(1,col):
+		if mat[0][i] == 0:
+			for j in range(1,row):
 				mat[i][j] = 0
 
 	if fcol:
-		for i in range(rows):
+		for i in range(row):
 			mat[i][0] = 0
-
 	if frow:
-		for j in range(cols):
-			mat[0][j] = 0
+		for i in range(col):
+			mat[0][i] = 0
+
 	return mat
