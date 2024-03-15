@@ -9,6 +9,9 @@
 # iterate over first element in each col and if 0 set whole COL to 0s
 # if fcol or frow true set respective 0
 
+# time: O(m x n)
+# space: O(1)
+
 def set_matrix_zeros(mat):
 	row = len(mat)
 	col = len(mat[0])
