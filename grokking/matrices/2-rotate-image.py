@@ -10,6 +10,8 @@
 # swap top left with bottom left
 # return matrix
 
+# time: O(n^2) where n is each cell
+# space: O(1) since all done in place
 
 def rotate_image(matrix):
 
