@@ -10,6 +10,8 @@
 # check if ball is not stuck at boundary by checking if next_col is < 0 or > than cols
 # set current_col as next_col
 
+# time O(n^2) where n is each cell on grid
+# space O(1) where m is number of cols
 
 def find_exit_column(grid):
 
