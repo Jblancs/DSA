@@ -13,41 +13,43 @@
 # space: O(1)
 
 def set_matrix_zeros(mat):
-	row = len(mat)
-	col = len(mat[0])
+	rows = len(mat)
+	cols = len(mat[0])
 
 	frow = False
 	fcol = False
 
-	for idx in range(col):
-		if mat[0][idx] == 0:
-			frow = True
-
-	for idx in range(row):
+	for idx in range(rows):
 		if mat[idx][0] == 0:
 			fcol = True
 
-	for i in range(1,row):
-		for j in range(1,col):
-			if mat[i][j] == 0:
-				mat[0][j] = 0
-				mat[i][0] = 0
+	for idx in range(cols):
+		if mat[0][idx] == 0:
+			frow = True
 
-	for i in range(1,row):
-		if mat[i][0] == 0:
-			for j in range(1,col):
-				mat[i][j] = 0
+	for row in range(1,rows):
+		for col in range(1,cols):
+			if mat[row][col] == 0:
+				mat[0][col] = 0
+				mat[row][0] = 0
 
-	for i in range(1,col):
-		if mat[0][i] == 0:
-			for j in range(1,row):
-				mat[i][j] = 0
+	for row_idx in range(1,rows):
+		if mat[row_idx][0] == 0:
+			for col_idx in range(1,cols):
+				mat[row_idx][col_idx] = 0
+
+	for col_idx in range(1,cols):
+		if mat[0][col_idx] == 0:
+			for row_idx in range(1,rows):
+				mat[row_idx][col_idx] = 0
+
+
+	if frow:
+		for col_idx in range(cols):
+			mat[0][col_idx] = 0
 
 	if fcol:
-		for i in range(row):
-			mat[i][0] = 0
-	if frow:
-		for i in range(col):
-			mat[0][i] = 0
+		for row_idx in range(rows):
+			mat[row_idx][0] = 0
 
 	return mat
