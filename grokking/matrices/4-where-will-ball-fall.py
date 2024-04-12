@@ -14,4 +14,22 @@
 # space O(1) where m is number of cols
 
 def find_exit_column(grid):
+    rows = len(grid)
+    cols = len(grid[0])
+    result = []
 
+    for col in range(cols):
+        current_col = col
+        for row in range(rows):
+            next_col = current_col + grid[row][current_col]
+
+            if next_col < 0 or next_col >= cols or grid[row][current_col] != grid[row][next_col]:
+                result.append(-1)
+                break
+
+            if row == rows - 1:
+                result.append(next_col)
+
+            current_col = next_col
+
+    return result
