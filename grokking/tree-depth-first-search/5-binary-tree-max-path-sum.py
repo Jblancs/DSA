@@ -16,32 +16,16 @@
 # if total > sum: sum = total
 
 def max_contrib(root, sum):
-    if not root:
+    if root is None:
         return 0
 
-    max_left = max_contrib(root.left)
-    max_right = max_contrib(root.right)
 
-    left_tree = 0
-    right_tree = 0
-
-    if left_tree > 0:
-        left_tree = max_left
-    if right_tree > 0:
-        right_tree = max_right
-
-    value_new_path = root.data + left_tree + right_tree
-
-    max_sum = max_contrib.max_sum
-    max_contrib.max_sum = max(max_sum, value_new_path)
-
-    return root.data + max(left_tree, right_tree)
 
 
 
 def max_path_sum(root):
-    max_contrib.max_sum = float("-inf")
+    sum = float("-inf")
 
-    max_contrib(root)
+    max_contrib(root, sum)
 
-    return max_contrib.max_sum
+    return sum
