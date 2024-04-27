@@ -27,11 +27,25 @@ def recursive_helper(p_order, i_order, left, right, hash_map, p_index):
     if left > right:
         return None
 
-    
+    current = p_order[p_index[0]]
+    p_index += 1
+
+    root = TreeNode(current)
+
+    if left == right:
+        return root
+
+    in_index = hash_map[current]
+
+    root.left = recursive_helper(p_order, i_order, left, in_index - 1, hash_map, p_index)
+    root.right = recursive_helper(p_order, i_order, in_index+1, right, hash_map, p_index)
+
+    return root
+
 
 
 def build_tree(p_order, i_order):
-    p_index = 0
+    p_index = [0]
     hash = {}
 
     for idx in range(len(i_order)):
