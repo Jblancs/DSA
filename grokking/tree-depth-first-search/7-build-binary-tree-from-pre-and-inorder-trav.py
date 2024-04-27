@@ -24,35 +24,11 @@ from utils import TreeNode
 # space O(n) for map
 
 def recursive_helper(p_order, i_order, left, right, hash_map, p_index):
-    if left > right:
-        return None
 
-    current = p_order[p_index[0]]
-    p_index[0] += 1
-
-    root = TreeNode(current)
-
-    if left == right:
-        return root
-
-    in_index = hash_map[current]
-
-    root.left = recursive_helper(p_order, i_order, left, in_index - 1, hash_map, p_index)
-    root.right = recursive_helper(p_order, i_order, in_index + 1, right, hash_map, p_index)
-
-    return root
 
 
 def build_tree(p_order, i_order):
-    p_index = [0]
-    hash_map = {}
 
-    for idx in range(len(i_order)):
-        hash_map[i_order[idx]] = idx
-
-    root = recursive_helper(p_order, i_order, 0, len(p_order) - 1, hash_map, p_index)
-
-    return root
 
 
 print(build_tree([3,9,20,15,7],[9,3,15,20,7]))
