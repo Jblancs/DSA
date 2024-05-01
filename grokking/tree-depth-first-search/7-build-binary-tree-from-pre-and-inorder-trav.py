@@ -28,7 +28,7 @@ def recursive_helper(p_order, i_order, left, right, hash_map, p_index):
         return None
 
     current = p_order[p_index[0]]
-    p_index += 1
+    p_index[0] += 1
 
     root = TreeNode(current)
 
