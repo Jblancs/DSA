@@ -19,4 +19,22 @@ class Solution:
         return self.lca
 
     def lowest_common_ancestor_rec(self, current_node, p, q):
+        if not current_node:
+            return False
 
+        mid = False
+        left = False
+        right = False
+
+        if current_node == p or current_node == q:
+            mid = True
+
+        left = self.lowest_common_ancestor_rec(self, current_node.left, p, q)
+
+        if not self.lca:
+            right = self.lowest_common_ancestor_rec(self, current_node.right, p, q)
+
+        if mid + left +right >= 2:
+            self.lca = current_node
+
+        return mid or left or right
