@@ -6,9 +6,6 @@
 # time: O(h) for array with len of height of tree
 
 def dfs(rside, node, level):
-    if node is None:
-        return
-
     length = len(rside)
 
     if length == level:
