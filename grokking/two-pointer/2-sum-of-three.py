@@ -4,23 +4,7 @@
 # space: O(n) because of sort
 
 def find_sum_of_three(nums, target):
-    nums.sort()
-
-    for i in range(0, len(nums)-2):
-        low = i + 1
-        high = len(nums) - 1
-
-        while low < high:
-            total = nums[i] + nums[low] + nums[high]
-
-            if total == target:
-                return True
-            elif total < target:
-                low += 1
-            elif total > target:
-                high -= 1
-
-    return False
+    
 
 list1 = [1,-1,0]
 list2 = [3,7,1,2,8,4,5]
