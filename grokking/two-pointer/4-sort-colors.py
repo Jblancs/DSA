@@ -20,7 +20,26 @@
 # space: O(1)
 
 def sort_colors(colors):
+    start = 0
+    current = 0
+    end = len(colors) - 1
 
+    if len(colors) == 1:
+        return colors
+
+    while current <= end:
+        if colors[current] == 0:
+            colors[start], colors[current] = colors[current], colors[start]
+            start += 1
+            current += 1
+
+        elif colors[current] == 1:
+            current += 1
+
+        else:
+            if colors[end] != 2:
+                colors[end], colors[current] = colors[current], colors[end]
+            end -= 1
 
     return colors
 
