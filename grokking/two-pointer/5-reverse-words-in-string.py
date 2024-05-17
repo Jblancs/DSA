@@ -30,32 +30,10 @@ import re
 
 def reverse_words(sentence):
 
-   sentence = sentence = re.sub(' +',' ',sentence.strip())
-   sentence = list(sentence)
-   str_len = len(sentence)
-
-   reverse_str(sentence, 0, len(sentence)-1)
-
-   start = 0
-   end = 0
-
-   while start < str_len:
-      while end < str_len and sentence[end] != " ":
-         end += 1
-
-      reverse_str(sentence, start, end-1)
-      start = end + 1
-      end += 1
-
-   return "".join(sentence)
+   return
 
 
 def reverse_str(str, start, end):
-   while start < end:
-      start_value = str[start]
-      str[start] = str[end]
-      str[end] = start_value
-      start += 1
-      end -= 1
+   return
 
 print(reverse_words("We love Java "))
