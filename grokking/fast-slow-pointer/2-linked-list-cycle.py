@@ -14,20 +14,7 @@ from utils import LinkedList
 # space = O(1)
 
 def detect_cycle(head):
-    if head is None:
-        return False
 
-    slow, fast = head, head
-
-    while fast != None and fast.next:
-
-        slow = slow.next
-        fast = fast.next.next
-
-        if fast == slow:
-           return True
-
-    return False
 
 
 list_1 = LinkedList()
