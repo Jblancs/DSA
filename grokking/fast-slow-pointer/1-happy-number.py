@@ -19,18 +19,16 @@
 # time: O(logn) since number with 3 digit 999 sum is 243 so 243 cycles is max
 # space: O(1)
 
+def sum_of_sq(number):
+    sum = 0
+    while number > 0:
+        number, digit = divmod(number, 10)
+        sum += digit**2
+    return sum
 
 def is_happy_number(n):
-
-    def sum_of_sq(number):
-        total = 0
-        while number > 0:
-            number, digit = divmod(number, 10)
-            total += digit ** 2
-        return total
-
-    slow = n
     fast = sum_of_sq(n)
+    slow = n
 
     while fast != 1 and slow != fast:
         slow = sum_of_sq(slow)
