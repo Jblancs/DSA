@@ -29,11 +29,33 @@
 import re
 
 def reverse_words(sentence):
+   sentence = re.sub(' +', ' ', sentence.strip())
 
-   return
+   sentence = list(sentence)
+   sentence.reverse()
+   print(sentence)
+   str_len = len(sentence) - 1
+
+
+   start = 0
+   end = 0
+
+   while end <= str_len:
+      if end == str_len or sentence[end] == " ":
+         end_idx = (end - 1) if sentence[end] == " " else end
+         reverse_str(sentence, start, end_idx)
+         start = end + 1
+      # print(f"start: {start} end: {end} str_len: {str_len}")
+      end += 1
+
+   return "".join(sentence)
 
 
 def reverse_str(str, start, end):
+   while start < end:
+      str[start], str[end] = str[end], str[start]
+      start += 1
+      end -= 1
    return
 
 print(reverse_words("We love Java "))
