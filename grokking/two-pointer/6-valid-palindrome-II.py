@@ -13,7 +13,31 @@
 # outside loop return True
 
 def is_palindrome(s):
+  left = 0
+  right = len(s) - 1
 
+  counter = 0
+
+  while left < right:
+    if s[left] != s[right]:
+      if counter == 0:
+        left += 1
+        counter += 1
+        continue
+      elif counter == 1:
+        left = 0
+        right = len(s) - 1
+        counter += 1
+        continue
+      elif counter == 2:
+        right -= 1
+        counter += 1
+        continue
+      elif counter == 3:
+        return False
+
+    left += 1
+    right -= 1
 
   return True
 
