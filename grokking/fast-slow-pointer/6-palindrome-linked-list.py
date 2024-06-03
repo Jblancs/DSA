@@ -16,24 +16,7 @@
 from utils import LinkedList, reverse_linked_list
 
 def palindrome(head):
-
-    fast = head
-    slow = head
-
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-
-    rev_list = reverse_linked_list(slow)
-    rev_curr = rev_list
-    curr = head
-    while rev_curr is not None:
-        if curr.data != rev_curr.data:
-            return False
-        curr = curr.next
-        rev_curr = rev_curr.next
-
-    return True
+    return
 
 list_1 = LinkedList()
 list_1.create_linked_list([1,2,3,2,1])
