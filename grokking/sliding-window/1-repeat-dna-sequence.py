@@ -15,26 +15,6 @@
 # space: O(k(n-k) since we create hashmap
 
 def find_repeated_sequences(s, k):
-
-    hash = dict()
-    start = 0
-    end = k
-
-    while end <= len(s):
-        substring = s[start:end]
-        if substring in hash:
-            hash[substring] += 1
-        else:
-            hash[substring] = 1
-
-        start += 1
-        end += 1
-
-    result = []
-    for key in hash:
-        if hash[key] > 1:
-            result.append(key)
-
-    return result
+    return
 
 print(find_repeated_sequences("AAAAACCCCCAAAAACCCCCC", 8))
