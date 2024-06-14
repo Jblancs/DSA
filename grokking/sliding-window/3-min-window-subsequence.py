@@ -22,41 +22,8 @@
 # time: O(n*m) where n is length of str1 and m is length of str2 since we reverse loop for str2
 
 def min_window(str1, str2):
-    len1 = len(str1)
-    len2 = len(str2)
 
-    min_sub_length = float("inf")
-    min_subseq = ""
 
-    idx1 = 0
-    idx2 = 0
-
-    while idx1 < len1:
-        if str1[idx1] == str2[idx2]:
-            idx2 += 1
-
-        if idx2 == len2:
-            start = idx1
-            end = idx1
-            idx2 -= 1
-
-            while idx2 >= 0:
-                if str1[start] == str2[idx2]:
-                    idx2 -= 1
-
-                start -= 1
-
-            start += 1
-
-            if (end - start) < min_sub_length:
-                min_sub_length = end - start
-                min_subseq = str1[start:end+1]
-
-            idx1 = start
-            idx2 = 0
-
-        idx1 += 1
-
-    return min_subseq
+    return 
 
 print(min_window("abcdebdde", "bde"))
