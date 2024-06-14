@@ -41,10 +41,32 @@ def find_max_sliding_window(nums, w):
 print(find_max_sliding_window([1,2,3,4,5,6,7,8,9,10], 3))
 
 def clean_up(i, nums, current_window):
+    while current_window and nums[i] >= nums[current_window[-1]]:
+        current_window.pop()
     return
 
 def find_max_sliding_window_optimized(nums, w):
-    return
+    if len(nums) == 1:
+        return nums
+
+    output = []
+    window = deque()
+
+    for i in range(w):
+        clean_up(i, nums, window)
+        window.append(i)
+
+    output.append(nums[window[0]])
+
+    for i in range(w, len(nums)):
+        clean_up(i, nums, window)
+        if window and window[0] <= (i-w):
+            window.popleft()
+
+        window.append(i)
+        output.append(nums[window[0]])
+
+    return output
 
 
 
