@@ -18,28 +18,9 @@
 # space O(1) for hashmap with a max storing is 26 letters
 
 def longest_repeating_character_replacement(s, k):
-    longest_len = 0
-    start = 0
-    hash_map = {}
-    most_freq_char = 0
 
-    for end in range(len(s)):
-        if s[end] not in hash_map:
-            hash_map[s[end]] = 1
-        else:
-            hash_map[s[end]] += 1
 
-        most_freq_char = max(most_freq_char, hash_map[s[end]])
-
-        num_replacements = end - start + 1 - most_freq_char
-
-        if num_replacements > k:
-            hash_map[s[start]] -= 1
-            start += 1
-
-        longest_len = max(longest_len, end - start + 1)
-
-    return longest_len
+    return 
 
 
 
