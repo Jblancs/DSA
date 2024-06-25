@@ -36,9 +36,9 @@ def longest_repeating_character_replacement(s, k):
             char_freq[s[start]] -= 1
             start += 1
 
-        length_of_max_sub = max(end - start + 1, length_of_max_sub)
+        len_of_max_sub = max(end - start + 1, len_of_max_sub)
 
-    return length_of_max_sub
+    return len_of_max_sub
 
 
 
